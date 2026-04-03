@@ -1,0 +1,17 @@
+services:
+  mqtt-cloud:
+    image: eclipse-mosquitto:2.0
+    container_name: mqtt-cloud
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/cloud.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto/passwd:/mosquitto/config/passwd
+
+  mqtt-local:
+    image: eclipse-mosquitto:2.0
+    container_name: mqtt-local
+    ports:
+      - "1884:1883"
+    volumes:
+      - ./mosquitto/local.conf:/mosquitto/config/mosquitto.conf

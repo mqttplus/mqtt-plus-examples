@@ -1,0 +1,19 @@
+mqtt-plus:
+  brokers:
+    cloud:
+      host: localhost
+      port: 1883
+      clientId: examples-cloud-001
+      username: admin
+      password: mqtt123
+    local:
+      host: localhost
+      port: 1884
+      clientId: examples-local-001
+
+server:
+  port: 8080
+
+logging:
+  level:
+    io.github.mqttplus: DEBUG
