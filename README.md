@@ -85,6 +85,8 @@ Expected startup behavior:
 - Connect to `cloud`
 - Connect to `local`
 - Expose REST endpoints on `http://localhost:8080`
+- Expose Swagger UI on `http://localhost:8080/swagger-ui.html`
+- Expose OpenAPI docs on `http://localhost:8080/v3/api-docs`
 
 ### Configuration
 
@@ -99,6 +101,11 @@ Core config lives in:
 - [docker-compose.yml](/D:/workspace/mygithub/mqtt-plus-examples/docker-compose.yml)
 
 ### REST API
+
+Swagger endpoints:
+
+- `GET /swagger-ui.html`
+- `GET /v3/api-docs`
 
 **Demo endpoints**
 
@@ -259,6 +266,8 @@ mvn spring-boot:run
 - 连接到 `cloud`
 - 连接到 `local`
 - 在 `http://localhost:8080` 暴露 REST 接口
+- 在 `http://localhost:8080/swagger-ui.html` 暴露 Swagger UI
+- 在 `http://localhost:8080/v3/api-docs` 暴露 OpenAPI 文档
 
 ### 配置说明
 
@@ -273,6 +282,11 @@ mvn spring-boot:run
 - [docker-compose.yml](/D:/workspace/mygithub/mqtt-plus-examples/docker-compose.yml)
 
 ### REST 接口
+
+Swagger 相关地址：
+
+- `GET /swagger-ui.html`
+- `GET /v3/api-docs`
 
 **演示触发接口**
 
