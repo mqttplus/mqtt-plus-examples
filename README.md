@@ -31,7 +31,7 @@ public void onStatus(DroneStatus status, MqttHeaders headers, @MqttTopic String 
 
 ### Current Scope
 
-This README reflects the current `1.1.0-SNAPSHOT` demo scope:
+This README reflects the current `1.1.0` examples release scope:
 
 - Included: Spring Boot app scaffold, dual Mosquitto broker setup, listeners, publishers, REST triggers, interceptor, connection listener, bilingual README
 - Not included: frontend UI, database, CI pipeline, formal integration test suite
@@ -51,7 +51,7 @@ This README reflects the current `1.1.0-SNAPSHOT` demo scope:
 
 **1. Install local mqtt-plus snapshots**
 
-Build the main repository first so the example project can resolve `1.1.0-SNAPSHOT`:
+Build the main repository first so the example project can resolve `1.1.0-SNAPSHOT` until the `mqtt-plus` `1.1.0` artifacts are available in your Maven repositories:
 
 ```powershell
 Set-Location 'D:/workspace/mygithub/mqtt-plus'
@@ -212,7 +212,7 @@ public void onStatus(DroneStatus status, MqttHeaders headers, @MqttTopic String 
 
 ### 当前范围
 
-本 README 对应当前 `1.1.0-SNAPSHOT` 的 demo 范围：
+本 README 对应当前 `1.1.0` examples 发布版本的 demo 范围：
 
 - 已包含：Spring Boot 示例工程骨架、双 Mosquitto broker 配置、监听器、发布器、REST 触发接口、拦截器、连接事件监听器、双语 README
 - 未包含：前端界面、数据库、CI 流水线、正式集成测试套件
@@ -232,7 +232,7 @@ public void onStatus(DroneStatus status, MqttHeaders headers, @MqttTopic String 
 
 **1. 安装本地 mqtt-plus 快照**
 
-先构建主仓库，让示例工程可以解析 `1.1.0-SNAPSHOT`：
+先构建主仓库，让示例工程先解析 `1.1.0-SNAPSHOT`，直到你的 Maven 仓库里已经可用 `mqtt-plus` `1.1.0` 正式件：
 
 ```powershell
 Set-Location 'D:/workspace/mygithub/mqtt-plus'
