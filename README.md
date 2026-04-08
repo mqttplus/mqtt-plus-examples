@@ -45,7 +45,7 @@ This README reflects the current `1.1.0-SNAPSHOT` demo scope:
 - JSON POJO payload binding with Jackson
 - Global interceptor for inbound message logging
 - Broker connection lifecycle logging
-- Cloud broker authentication plus local broker anonymous access
+- Cloud and local broker username/password authentication
 
 ### Quick Start
 
@@ -60,7 +60,7 @@ mvn install -DskipTests
 
 **2. Start the brokers**
 
-Generate the cloud broker password file:
+Generate the shared broker password file:
 
 ```powershell
 docker run --rm eclipse-mosquitto:2.0 sh -c "mosquitto_passwd -b -c /tmp/passwd admin mqtt123 && cat /tmp/passwd" > .\mosquitto\passwd
@@ -93,7 +93,7 @@ Expected startup behavior:
 The app uses two brokers:
 
 - `cloud` on port `1883` with username/password authentication
-- `local` on port `1884` with anonymous access
+- `local` on port `1884` with username/password authentication
 
 Core config lives in:
 
@@ -157,7 +157,7 @@ mosquitto_sub -h localhost -p 1883 -u admin -P mqtt123 -t "alert/critical/batter
 **Multi-broker check**
 
 ```powershell
-mosquitto_pub -h localhost -p 1884 -t "drone/LOCAL001/status" -m '{"sn":"LOCAL001","battery":99}'
+mosquitto_pub -h localhost -p 1884 -u admin -P mqtt123 -t "drone/LOCAL001/status" -m '{"sn":"LOCAL001","battery":99}'
 ```
 
 ### Project Map
@@ -226,7 +226,7 @@ public void onStatus(DroneStatus status, MqttHeaders headers, @MqttTopic String 
 - 基于 Jackson 的 JSON POJO 反序列化
 - 全局入站消息拦截器
 - broker 连接生命周期日志
-- cloud broker 认证与 local broker 匿名访问
+- cloud broker 与 local broker 均使用用户名密码认证
 
 ### 快速开始
 
@@ -241,7 +241,7 @@ mvn install -DskipTests
 
 **2. 启动 broker**
 
-先生成 cloud broker 的密码文件：
+先生成两个 broker 共用的密码文件：
 
 ```powershell
 docker run --rm eclipse-mosquitto:2.0 sh -c "mosquitto_passwd -b -c /tmp/passwd admin mqtt123 && cat /tmp/passwd" > .\mosquitto\passwd
@@ -274,7 +274,7 @@ mvn spring-boot:run
 这个 demo 使用两个 broker：
 
 - `cloud`：端口 `1883`，启用用户名密码认证
-- `local`：端口 `1884`，允许匿名访问
+- `local`：端口 `1884`，启用用户名密码认证
 
 核心配置文件：
 
@@ -338,7 +338,7 @@ mosquitto_sub -h localhost -p 1883 -u admin -P mqtt123 -t "alert/critical/batter
 **多 broker 检查**
 
 ```powershell
-mosquitto_pub -h localhost -p 1884 -t "drone/LOCAL001/status" -m '{"sn":"LOCAL001","battery":99}'
+mosquitto_pub -h localhost -p 1884 -u admin -P mqtt123 -t "drone/LOCAL001/status" -m '{"sn":"LOCAL001","battery":99}'
 ```
 
 ### 代码地图
